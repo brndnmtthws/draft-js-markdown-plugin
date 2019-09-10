@@ -1,20 +1,23 @@
-draft-js-markdown-plugin
+draft-js-markdown-plugin-es6
 ==================================
 
-[![Build Status](https://travis-ci.org/withspectrum/draft-js-markdown-plugin.svg?branch=master)](https://travis-ci.org/withspectrum/draft-js-markdown-plugin)
-[![npm](https://img.shields.io/npm/v/draft-js-markdown-plugin.svg)][npm]
-<!-- [![Coverage Status](https://coveralls.io/repos/github/withspectrum/draft-js-markdown-plugin/badge.svg?branch=master)](https://coveralls.io/github/withspectrum/draft-js-markdown-plugin?branch=master) -->
+[![Build Status](https://travis-ci.org/brndnmtthws/draft-js-markdown-plugin-es6.svg?branch=master)](https://travis-ci.org/brndnmtthws/draft-js-markdown-plugin-es6)
+[![npm](https://img.shields.io/npm/v/draft-js-markdown-plugin-es6.svg)][npm]
+<!-- [![Coverage Status](https://coveralls.io/repos/github/brndnmtthws/draft-js-markdown-plugin-es6/badge.svg?branch=master)](https://coveralls.io/github/brndnmtthws/draft-js-markdown-plugin-es6?branch=master) -->
 
-An opinionated [DraftJS] plugin for supporting Markdown syntax shortcuts in DraftJS. This plugin works with [DraftJS Plugins], and is a fork of the excellent [`draft-js-markdown-shortcuts-plugin`](https://github.com/ngs/draft-js-markdown-shortcuts-plugin) by [@ngs](https://github.com/ngs). (see [why fork that plugin](#why-fork-the-markdown-shortcuts-plugin) for more info)
-
-![screen](screen.gif)
+An opinionated [DraftJS] plugin for supporting Markdown syntax shortcuts in DraftJS. This plugin works with [DraftJS Plugins], and is a fork of the excellent [`draft-js-markdown-plugin`](https://github.com/withspectrum/draft-js-markdown-plugin)
+![screen](screen.gif). This version supports the latest Draft.js 0.11.0 and ES6.
 
 [View Demo][Demo]
 
 ## Installation
 
 ```sh
-npm i --save draft-js-markdown-plugin
+npm i --save draft-js-markdown-plugin-es6
+```
+
+```sh
+yarn add draft-js-markdown-plugin-es6
 ```
 
 ## Usage
@@ -74,7 +77,7 @@ class Editor extends Component {
 
 ## Options
 
-The `draft-js-markdown-plugin` is configurable. Just pass a config object. Here are the available options:
+The `draft-js-markdown-plugin-es6` is configurable. Just pass a config object. Here are the available options:
 
 ### `renderLanguageSelect`
 
@@ -96,7 +99,7 @@ Code blocks render a select to switch syntax highlighting - `renderLanguageSelec
 #### Example:
 
 ```
-import createMarkdownPlugin from 'draft-js-markdown-plugin';
+import createMarkdownPlugin from 'draft-js-markdown-plugin-es6';
 
 const renderLanguageSelect = ({ options, onChange, selectedValue }) => (
   <select value={selectedValue} onChange={onChange}>
@@ -164,7 +167,6 @@ const plugin = createMarkdownPlugin({ features })
 *Available Block features*:
 
 ```js
-import { CHECKABLE_LIST_ITEM } from "draft-js-checkable-list-item"
 [
   'CODE',
   'header-one',
@@ -175,9 +177,6 @@ import { CHECKABLE_LIST_ITEM } from "draft-js-checkable-list-item"
   'header-six',
   'ordered-list-item',
   'unordered-list-item',
-  // CHECKABLE_LIST_ITEM is a constant from 'draft-js-checkable-list-item'
-  // see import statementabove
-  CHECKABLE_LIST_ITEM,
   'blockquote',
 ]
 ```
@@ -189,7 +188,7 @@ To interoperate this plugin with other DraftJS plugins, i.e. [`draft-js-plugins`
 #### Example:
 
 ```js
-import createMarkdownPlugin from "draft-js-markdown-plugin";
+import createMarkdownPlugin from "draft-js-markdown-plugin-es6";
 import createFocusPlugin from "draft-js-focus-plugin";
 import createImagePlugin from "draft-js-image-plugin";
 
@@ -207,17 +206,18 @@ const markdownPlugin = createMarkdownPlugin({ entityType });
 const editorPlugins = [focusPlugin, imagePlugin, markdownPlugin];
 ```
 
-## Why fork the `markdown-shortcuts-plugin`?
+## Support
 
-Writing is a core part of our app, and while the `markdown-shortcuts-plugin` is awesome and battle-tested there are a few opinionated things we wanted to do differently. Rather than bother [@ngs](https://github.com/ngs) with tons of PRs, we figured it'd be better to own that core part of our experience fully. 
+[![Contact Brenden 😎 on Umpyre](https://api.umpyre.com/badge/634c76f3513240a4bec1eda7fb5db7ea/badge.svg?width=211.275&height=68.04&name=Brenden%20%F0%9F%98%8E&font_size=18&style=light)](https://umpyre.com/u/634c76f3513240a4bec1eda7fb5db7ea)
+
+_Want to offer support? Add yourself above._
 
 ## License
 
-Licensed under the MIT license, Copyright Ⓒ 2017 Space Program Inc. This plugin is forked from the excellent [`draft-js-markdown-shortcuts-plugin`](https://github.com/ngs/draft-js-markdown-shortcuts-plugin) by [Atsushi Nagase](https://github.com/ngs).
+Licensed under the MIT license, Copyright Ⓒ 2017 Space Program Inc.
 
 See [LICENSE] for the full license text.
 
-[Demo]: https://markdown-plugin.spectrum.chat/
 [DraftJS]: https://facebook.github.io/draft-js/
 [DraftJS Plugins]: https://github.com/draft-js-plugins/draft-js-plugins
 [LICENSE]: ./LICENSE
