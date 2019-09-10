@@ -1,5 +1,5 @@
 import { EditorState, Modifier, RichUtils } from "draft-js";
-import React from "react";
+import CodeBlock from "./components/Code";
 import {
   CODE_BLOCK_REGEX,
   CODE_BLOCK_TYPE,
@@ -9,7 +9,6 @@ import {
 } from "./constants";
 import createImageDecorator from "./decorators/image";
 import createLinkDecorator from "./decorators/link";
-import adjustBlockDepth from "./modifiers/adjustBlockDepth";
 import changeCurrentBlockType from "./modifiers/changeCurrentBlockType";
 import handleBlockType from "./modifiers/handleBlockType";
 import handleImage from "./modifiers/handleImage";
@@ -21,6 +20,7 @@ import insertText from "./modifiers/insertText";
 import leaveList from "./modifiers/leaveList";
 import resetInlineStyle from "./modifiers/resetInlineStyle";
 import splitBlockAndChange from "./modifiers/splitBlockAndChange";
+import { defaultRenderSelect } from "./utils";
 
 const defaultLanguages = {
   bash: "Bash",
@@ -40,18 +40,6 @@ const defaultLanguages = {
   svg: "SVG",
   swift: "Swift",
 };
-
-const INLINE_STYLE_CHARACTERS = ["*", "_", "`", "~"];
-
-const defaultRenderSelect = ({ options, onChange, selectedValue }) => (
-  <select value={selectedValue} onChange={onChange}>
-    {options.map(({ label, value }) => (
-      <option key={value} value={value}>
-        {label}}
-      </option>
-    ))}
-  </select>
-);
 
 function inLink(editorState) {
   const selection = editorState.getSelection();
@@ -291,15 +279,6 @@ const createMarkdownPlugin = (_config = {}) => {
           return null;
       }
     },
-    onTab(ev, { getEditorState, setEditorState }) {
-      const editorState = getEditorState();
-      const newEditorState = adjustBlockDepth(editorState, ev);
-      if (newEditorState !== editorState) {
-        setEditorState(newEditorState);
-        return "handled";
-      }
-      return "not-handled";
-    },
     handleReturn(ev, editorState, { setEditorState }) {
       if (inLink(editorState)) return "not-handled";
 
@@ -338,7 +317,12 @@ const createMarkdownPlugin = (_config = {}) => {
 
       return "not-handled";
     },
-    handleBeforeInput(character, editorState, { setEditorState }) {
+    handleBeforeInput(
+      character,
+      editorState,
+      eventTimeStamp,
+      { setEditorState }
+    ) {
       // If we're in a code block - don't transform markdown
       if (inCodeBlock(editorState)) return "not-handled";
 

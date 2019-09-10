@@ -1,17 +1,17 @@
 export default {
   entityMap: {
-    "0": {
+    0: {
       type: "LINK",
       mutability: "MUTABLE",
       data: {
-        href: "https://github.com/withspectrum/draft-js-markdown-plugin",
+        href: "https://github.com/brndnmtthws/draft-js-markdown-plugin-es6",
       },
     },
   },
   blocks: [
     {
       key: "8ock3",
-      text: "draft-js-markdown-plugin",
+      text: "draft-js-markdown-plugin-es6",
       type: "header-one",
       depth: 0,
       inlineStyleRanges: [],

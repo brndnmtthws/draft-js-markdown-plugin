@@ -12,7 +12,7 @@ const changeCurrentBlockType = (
   const blockMap = currentContent.getBlockMap();
   const block = blockMap.get(key);
   const data = block.getData().merge(blockMetadata);
-  const newBlock = block.merge({ type, data, text: text });
+  const newBlock = block.merge({ type, data, text });
 
   const lastOffset = text.length;
 

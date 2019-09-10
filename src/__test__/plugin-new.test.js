@@ -1,5 +1,5 @@
 import Draft, { EditorState, SelectionState, convertToRaw } from "draft-js";
-import createMarkdownPlugin from "../";
+import createMarkdownPlugin from "..";
 import { applyMDtoInlineStyleChange } from "./utils";
 
 describe("markdown", () => {
@@ -25,7 +25,7 @@ describe("markdown", () => {
       )
     );
     expect(
-      handleBeforeInput("*", before, {
+      handleBeforeInput("*", before, 0, {
         setEditorState,
       })
     ).toEqual("handled");
@@ -70,7 +70,7 @@ describe("markdown", () => {
       })
     );
     expect(
-      handleBeforeInput("a", before, {
+      handleBeforeInput("a", before, 0, {
         setEditorState,
       })
     ).toEqual("not-handled");
@@ -101,7 +101,7 @@ describe("markdown", () => {
         })
       )
     );
-    expect(handleBeforeInput("a", editorState, {})).toEqual("not-handled");
+    expect(handleBeforeInput("a", editorState, 0, {})).toEqual("not-handled");
   });
 
   it("should not have sticky inline styles", () => {
@@ -134,7 +134,7 @@ describe("markdown", () => {
     );
 
     expect(
-      handleBeforeInput("a", editorState, {
+      handleBeforeInput("a", editorState, 0, {
         setEditorState,
       })
     ).toEqual("handled");
@@ -184,7 +184,7 @@ describe("markdown", () => {
     );
 
     expect(
-      handleBeforeInput("a", editorState, {
+      handleBeforeInput("a", editorState, 0, {
         setEditorState,
       })
     ).toEqual("handled");

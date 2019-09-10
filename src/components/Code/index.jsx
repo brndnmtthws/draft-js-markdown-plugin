@@ -15,7 +15,7 @@ function CodeSwitchContainer(props) {
 
   return (
     <OutsideClickHandler onOutsideClick={() => handleClickOutside()}>
-      <div contentEditable={false} onClick={this.props.onClick}>
+      <div contentEditable={false} onClick={props.onClick}>
         {props.children}
       </div>
     </OutsideClickHandler>
@@ -23,19 +23,13 @@ function CodeSwitchContainer(props) {
 }
 
 function CodeBlock(props) {
-  state = {
-    isOpen: false,
-  };
+  const [isOpen, setIsOpen] = React.useState(false);
 
-  onChange = ev => {
+  function onChange(ev) {
     ev.preventDefault();
     ev.stopPropagation();
-    const blockKey = this.props.block.getKey();
-    const {
-      getEditorState,
-      setReadOnly,
-      setEditorState,
-    } = this.props.blockProps;
+    const blockKey = props.block.getKey();
+    const { getEditorState, setReadOnly, setEditorState } = props.blockProps;
 
     const editorState = getEditorState();
     const selection = editorState.getSelection();
@@ -45,9 +39,7 @@ function CodeBlock(props) {
       focusKey: blockKey,
     });
 
-    this.setState({
-      isOpen: false,
-    });
+    setIsOpen(false);
 
     let content = editorState.getCurrentContent();
     content = Modifier.mergeBlockData(
@@ -66,40 +58,27 @@ function CodeBlock(props) {
     );
 
     setEditorState(EditorState.forceSelection(newEditorState, selection));
-  };
+  }
 
   function cancelClicks(event) {
     return event.preventDefault();
   }
 
   function onSelectClick(event) {
-    this.setState({
-      isOpen: true,
-    });
-    const { setReadOnly } = this.props.blockProps;
+    setIsOpen(true);
+    const { setReadOnly } = props.blockProps;
     event.stopPropagation();
     setReadOnly(true);
-    this.setState({
-      isOpen: true,
-    });
+    setIsOpen(true);
   }
 
   function onClickOutside() {
-    if (this.state.isOpen === false) return;
-    this.setState({
-      isOpen: false,
-    });
-    const {
-      getEditorState,
-      setReadOnly,
-      setEditorState,
-    } = this.props.blockProps;
+    if (isOpen === false) return;
+    setIsOpen(false);
+    const { getEditorState, setReadOnly, setEditorState } = props.blockProps;
 
     setReadOnly(false);
-
-    this.setState({
-      isOpen: false,
-    });
+    setIsOpen(false);
 
     const editorState = getEditorState();
     const selection = editorState.getSelection();
@@ -112,7 +91,7 @@ function CodeBlock(props) {
     renderLanguageSelect,
     getReadOnly,
     language: _language,
-  } = this.props.blockProps;
+  } = props.blockProps;
 
   const language = alias[_language] || _language;
   const selectedLabel = languages[language];
@@ -131,17 +110,17 @@ function CodeBlock(props) {
 
   return (
     <div>
-      <EditorBlock {...this.props} />{" "}
+      <EditorBlock {...props} />{" "}
       <CodeSwitchContainer
-        onClickOutside={this.onClickOutside}
-        onClick={this.onSelectClick}
+        onClickOutside={onClickOutside}
+        onClick={onSelectClick}
       >
         {" "}
         {!getReadOnly() &&
           renderLanguageSelect({
             selectedLabel,
             selectedValue,
-            onChange: this.onChange,
+            onChange,
             options,
           })}{" "}
       </CodeSwitchContainer>{" "}

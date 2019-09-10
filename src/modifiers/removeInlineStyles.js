@@ -3,7 +3,7 @@ import { EditorState, RichUtils, Modifier } from "draft-js";
 export default (editorState, selection = editorState.getSelection()) => {
   const styles = ["BOLD", "ITALIC", "STRIKETHROUGH", "CODE"];
 
-  let newEditorState = EditorState.push(
+  const newEditorState = EditorState.push(
     editorState,
     styles.reduce(
       (newContentState, style) =>

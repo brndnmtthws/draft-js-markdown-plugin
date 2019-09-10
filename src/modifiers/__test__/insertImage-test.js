@@ -4,9 +4,7 @@ import insertImage from "../insertImage";
 
 jest.mock("draft-js/lib/generateRandomKey", () => {
   let count = 0;
-  return () => {
-    return `key${count++}`;
-  };
+  return () => `key${count++}`;
 });
 
 describe("insertImage", () => {

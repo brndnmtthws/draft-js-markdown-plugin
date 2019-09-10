@@ -1,5 +1,5 @@
-import changeCurrentInlineStyle from "./changeCurrentInlineStyle";
 import { EditorState, Modifier } from "draft-js";
+import changeCurrentInlineStyle from "./changeCurrentInlineStyle";
 import { inlineMatchers } from "../constants";
 import insertText from "./insertText";
 import { getCurrentLine as getLine } from "../utils";

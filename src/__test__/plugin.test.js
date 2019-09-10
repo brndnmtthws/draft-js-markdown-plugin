@@ -1,5 +1,5 @@
 import Draft, { EditorState, SelectionState } from "draft-js";
-import createMarkdownPlugin from "../";
+import createMarkdownPlugin from "..";
 import {
   defaultBlockWhitelist,
   defaultInlineWhitelist,
@@ -133,7 +133,7 @@ describe("draft-js-markdown-plugin", () => {
         it("does not handle if current entity is link", () => {
           currentRawContentState = {
             entityMap: {
-              "0": {
+              0: {
                 data: {
                   href: "www.google.com",
                   url: "http://www.google.com",
@@ -404,23 +404,6 @@ describe("draft-js-markdown-plugin", () => {
           expect(subject()).toBeNull();
         });
       });
-      describe("onTab", () => {
-        beforeEach(() => {
-          subject = () => {
-            createMarkdownPlugin.__Rewire__("adjustBlockDepth", modifierSpy); // eslint-disable-line no-underscore-dangle
-            return plugin.onTab(event, store);
-          };
-        });
-        describe("no changes", () => {
-          it("returns handled", () => {
-            expect(subject()).toBe("handled");
-          });
-          it("returns not-handled", () => {
-            modifierSpy = jest.fn(() => currentEditorState);
-            expect(subject()).toBe("not-handled");
-          });
-        });
-      });
       describe("handleBeforeInput", () => {
         let character;
         beforeEach(() => {
@@ -429,6 +412,7 @@ describe("draft-js-markdown-plugin", () => {
             plugin.handleBeforeInput(
               character,
               editorState || store.getEditorState(),
+              0,
               store
             );
           currentRawContentState = {
@@ -562,7 +546,7 @@ describe("draft-js-markdown-plugin", () => {
           it("returns not-handled", () => {
             currentRawContentState = {
               entityMap: {
-                "0": {
+                0: {
                   data: {
                     href: "www.google.com",
                     url: "http://www.google.com",

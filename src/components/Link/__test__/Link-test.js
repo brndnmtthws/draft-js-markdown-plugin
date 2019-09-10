@@ -2,18 +2,20 @@ import React from "react";
 import { ContentState } from "draft-js";
 import ShallowRenderer from "react-test-renderer/shallow";
 
-const renderer = new ShallowRenderer();
+import Link from "..";
 
-import Link from "../";
+const renderer = new ShallowRenderer();
 
 describe("<Link />", () => {
   it("renders anchor tag", () => {
-    const contentState = ContentState.createFromText(
-      ""
-    ).createEntity("LINK", "MUTABLE", {
-      href: "http://cultofthepartyparrot.com/",
-      title: "parrot",
-    });
+    const contentState = ContentState.createFromText("").createEntity(
+      "LINK",
+      "MUTABLE",
+      {
+        href: "http://cultofthepartyparrot.com/",
+        title: "parrot",
+      }
+    );
     const entityKey = contentState.getLastCreatedEntityKey();
     renderer.render(
       <Link entityKey={entityKey} contentState={contentState}>

@@ -65,7 +65,7 @@ describe("changeCurrentInlineStyle", () => {
     const matchArr = ["`some bold text`", "some bold text"];
     matchArr.index = 0;
     matchArr.input = text;
-    let newEditorState = changeCurrentInlineStyle(
+    const newEditorState = changeCurrentInlineStyle(
       editorState,
       matchArr,
       "CODE"

@@ -2,15 +2,13 @@ import sinon from "sinon";
 import Draft, { EditorState, SelectionState } from "draft-js";
 import handleNewCodeBlock from "../handleNewCodeBlock";
 
-const removeBlockKeys = rawContentState => {
-  return {
-    ...rawContentState,
-    blocks: rawContentState.blocks.map(block => {
-      delete block.key;
-      return block;
-    }),
-  };
-};
+const removeBlockKeys = rawContentState => ({
+  ...rawContentState,
+  blocks: rawContentState.blocks.map(block => {
+    delete block.key;
+    return block;
+  }),
+});
 
 describe("handleNewCodeBlock", () => {
   describe("in unstyled block with three backquotes", () => {

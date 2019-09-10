@@ -544,10 +544,11 @@ describe("handleInlineStyle", () => {
     describe(k, () => {
       const testCase = testCases[k];
       const { before, after, selection, character } = testCase;
-      if (!character)
+      if (!character) {
         throw new Error(
           "Invalid test case, needs to provide character option."
         );
+      }
       const contentState = Draft.convertFromRaw(before);
       const editorState = EditorState.forceSelection(
         EditorState.createWithContent(contentState),
