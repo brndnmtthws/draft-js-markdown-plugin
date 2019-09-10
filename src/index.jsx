@@ -2,14 +2,14 @@ import { EditorState, Modifier, RichUtils } from "draft-js";
 import React from "react";
 import {
   CODE_BLOCK_REGEX,
+  CODE_BLOCK_TYPE,
   defaultBlockWhitelist,
   defaultInlineWhitelist,
   ENTITY_TYPE,
 } from "./constants";
-import adjustBlockDepth from "./modifiers/adjustBlockDepth";
-import resetInlineStyle from "./modifiers/resetInlineStyle";
 import createImageDecorator from "./decorators/image";
 import createLinkDecorator from "./decorators/link";
+import adjustBlockDepth from "./modifiers/adjustBlockDepth";
 import changeCurrentBlockType from "./modifiers/changeCurrentBlockType";
 import handleBlockType from "./modifiers/handleBlockType";
 import handleImage from "./modifiers/handleImage";
@@ -19,6 +19,7 @@ import handleNewCodeBlock from "./modifiers/handleNewCodeBlock";
 import insertEmptyBlock from "./modifiers/insertEmptyBlock";
 import insertText from "./modifiers/insertText";
 import leaveList from "./modifiers/leaveList";
+import resetInlineStyle from "./modifiers/resetInlineStyle";
 import splitBlockAndChange from "./modifiers/splitBlockAndChange";
 
 const defaultLanguages = {
