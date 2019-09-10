@@ -101,6 +101,11 @@
     "webpack-merge": "^4.2.2"
   },
   "homepage": "https://github.com/brndnmtthws/draft-js-markdown-plugin-es6#readme",
+  "husky": {
+    "hooks": {
+      "precommit": "jest && lint-staged"
+    }
+  },
   "keywords": [
     "draftjs",
     "editor",
@@ -126,11 +131,10 @@
     "url": "git+https://github.com/brndnmtthws/draft-js-markdown-plugin-es6.git"
   },
   "scripts": {
-    "start": "cross-env NODE_ENV=development webpack-dev-server --open",
     "build": "npm run clean && npm run build:js",
     "build:demo": "cross-env NODE_ENV=production webpack",
     "build:js": "BABEL_DISABLE_CACHE=1 BABEL_ENV=production NODE_ENV=production node_modules/.bin/babel --out-dir='lib' --ignore='**/__test__/*' src",
-    "precommit": "jest && lint-staged",
+    "start": "cross-env NODE_ENV=development webpack-dev-server --open",
     "test": "jest"
   },
   "version": "3.1.1"
