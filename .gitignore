@@ -42,3 +42,5 @@ demo/public
 test-results.xml
 
 *.swp
+
+build
