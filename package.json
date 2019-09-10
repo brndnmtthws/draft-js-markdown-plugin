@@ -2,7 +2,7 @@
   "name": "draft-js-markdown-plugin",
   "version": "3.1.0",
   "description": "A DraftJS plugin for supporting Markdown syntax shortcuts, fork of draft-js-markdown-shortcuts-plugin",
-  "main": "lib/index.jsx",
+  "main": "lib/index.js",
   "scripts": {
     "build": "npm run clean && npm run build:js",
     "build:demo": "NODE_ENV=production webpack --config demo/webpack.config.prod.js && rm -rf demo/public/css && cp -R demo/publicTemplate/* demo/public/",
@@ -35,11 +35,11 @@
     ]
   },
   "devDependencies": {
+    "@babel/cli": "^7.6.0",
     "@babel/core": "7.6.0",
     "@babel/preset-env": "^7.6.0",
     "@babel/preset-react": "^7.0.0",
     "autoprefixer": "^9.6.1",
-    "babel-cli": "^6.18.0",
     "babel-eslint": "^10.0.3",
     "babel-loader": "^8.0.6",
     "babel-plugin-rewire": "^1.2.0",
