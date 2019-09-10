@@ -3,10 +3,10 @@ draft-js-markdown-plugin-es6
 
 [![Build Status](https://travis-ci.org/brndnmtthws/draft-js-markdown-plugin-es6.svg?branch=master)](https://travis-ci.org/brndnmtthws/draft-js-markdown-plugin-es6)
 [![npm](https://img.shields.io/npm/v/draft-js-markdown-plugin-es6.svg)][npm]
-<!-- [![Coverage Status](https://coveralls.io/repos/github/brndnmtthws/draft-js-markdown-plugin-es6/badge.svg?branch=master)](https://coveralls.io/github/brndnmtthws/draft-js-markdown-plugin-es6?branch=master) -->
 
-An opinionated [DraftJS] plugin for supporting Markdown syntax shortcuts in DraftJS. This plugin works with [DraftJS Plugins], and is a fork of the excellent [`draft-js-markdown-plugin`](https://github.com/withspectrum/draft-js-markdown-plugin)
-![screen](screen.gif). This version supports the latest Draft.js 0.11.0 and ES6.
+An opinionated [DraftJS] plugin for supporting Markdown syntax shortcuts in DraftJS. This plugin works with [DraftJS Plugins], and is a fork of the excellent [`draft-js-markdown-plugin`](https://github.com/withspectrum/draft-js-markdown-plugin).  This version supports the latest Draft.js 0.11.0 and ES6.
+
+![screen](screen.gif).
 
 [View Demo][Demo]
 
