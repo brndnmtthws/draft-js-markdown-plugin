@@ -1,6 +1,6 @@
 import Draft, { EditorState, SelectionState } from "draft-js";
-import handleBlockType from "../handleBlockType";
 import { defaultBlockWhitelist } from "../../constants";
+import handleBlockType from "../handleBlockType";
 
 describe("handleBlockType", () => {
   describe("no markup", () => {
@@ -425,86 +425,6 @@ describe("handleBlockType", () => {
         anchorOffset: 7,
         focusKey: "item1",
         focusOffset: 7,
-        isBackward: false,
-        hasFocus: true,
-      }),
-    },
-    "converts from unordered-list-item to unchecked checkable-list-item": {
-      before: {
-        entityMap: {},
-        blocks: [
-          {
-            key: "item1",
-            text: "[] Test",
-            type: "unordered-list-item",
-            depth: 0,
-            inlineStyleRanges: [],
-            entityRanges: [],
-            data: {},
-          },
-        ],
-      },
-      after: {
-        entityMap: {},
-        blocks: [
-          {
-            key: "item1",
-            text: "Test",
-            type: "checkable-list-item",
-            depth: 0,
-            inlineStyleRanges: [],
-            entityRanges: [],
-            data: {
-              checked: false,
-            },
-          },
-        ],
-      },
-      selection: new SelectionState({
-        anchorKey: "item1",
-        anchorOffset: 1,
-        focusKey: "item1",
-        focusOffset: 1,
-        isBackward: false,
-        hasFocus: true,
-      }),
-    },
-    "converts from unordered-list-item to checked checkable-list-item": {
-      before: {
-        entityMap: {},
-        blocks: [
-          {
-            key: "item1",
-            text: "[x]Test",
-            type: "unordered-list-item",
-            depth: 0,
-            inlineStyleRanges: [],
-            entityRanges: [],
-            data: {},
-          },
-        ],
-      },
-      after: {
-        entityMap: {},
-        blocks: [
-          {
-            key: "item1",
-            text: "Test",
-            type: "checkable-list-item",
-            depth: 0,
-            inlineStyleRanges: [],
-            entityRanges: [],
-            data: {
-              checked: true,
-            },
-          },
-        ],
-      },
-      selection: new SelectionState({
-        anchorKey: "item1",
-        anchorOffset: 3,
-        focusKey: "item1",
-        focusOffset: 3,
         isBackward: false,
         hasFocus: true,
       }),

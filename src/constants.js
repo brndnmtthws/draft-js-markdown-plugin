@@ -1,5 +1,3 @@
-import { CHECKABLE_LIST_ITEM } from "draft-js-checkable-list-item";
-
 export const CODE_BLOCK_REGEX = /^```([\w-]+)?\s*$/;
 
 export const inlineMatchers = {
@@ -35,6 +33,5 @@ export const defaultBlockWhitelist = [
   "header-six",
   "ordered-list-item",
   "unordered-list-item",
-  CHECKABLE_LIST_ITEM,
   "blockquote",
 ];

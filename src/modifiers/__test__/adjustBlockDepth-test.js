@@ -4,7 +4,9 @@ import adjustBlockDepth from "../adjustBlockDepth";
 
 describe("adjustBlockDepth", () => {
   const createEvent = () => {
-    const e = new window.KeyboardEvent("keydown", { shiftKey: false });
+    const e = new window.KeyboardEvent("keydown", {
+      shiftKey: false,
+    });
     sinon.spy(e, "preventDefault");
     return e;
   };
@@ -46,11 +48,7 @@ describe("adjustBlockDepth", () => {
       );
     });
   });
-  [
-    "unordered-list-item",
-    "ordered-list-item",
-    "checkable-list-item",
-  ].forEach(type => {
+  ["unordered-list-item", "ordered-list-item"].forEach(type => {
     describe(type, () => {
       it("adds depth", () => {
         const event = createEvent();

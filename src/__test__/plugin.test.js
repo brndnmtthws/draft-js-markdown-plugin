@@ -1,18 +1,11 @@
-import Draft, { EditorState, SelectionState, ContentBlock } from "draft-js";
+import Draft, { EditorState, SelectionState } from "draft-js";
+import createMarkdownPlugin from "../";
 import {
-  CheckableListItem,
-  CheckableListItemUtils,
-} from "draft-js-checkable-list-item";
-import { applyMDtoInlineStyleChange } from "./utils";
-
-import {
-  defaultInlineWhitelist,
   defaultBlockWhitelist,
+  defaultInlineWhitelist,
   ENTITY_TYPE,
 } from "../constants";
-
-import { Map, List } from "immutable";
-import createMarkdownPlugin from "../";
+import { applyMDtoInlineStyleChange } from "./utils";
 
 describe("draft-js-markdown-plugin", () => {
   afterEach(() => {
@@ -190,7 +183,13 @@ describe("draft-js-markdown-plugin", () => {
                 text: "item1",
                 type: "unstyled",
                 depth: 0,
-                inlineStyleRanges: [{ offset: 0, length: 5, style: "BOLD" }],
+                inlineStyleRanges: [
+                  {
+                    offset: 0,
+                    length: 5,
+                    style: "BOLD",
+                  },
+                ],
                 entityRanges: [],
                 data: {},
               },
@@ -395,59 +394,10 @@ describe("draft-js-markdown-plugin", () => {
         beforeEach(() => {
           type = null;
           const getType = () => type;
-          subject = () => plugin.blockStyleFn({ getType });
-        });
-        it("returns checkable-list-item", () => {
-          type = "checkable-list-item";
-          expect(subject()).toBe("checkable-list-item");
-        });
-        it("returns null", () => {
-          type = "ordered-list-item";
-          expect(subject()).toBeNull();
-        });
-      });
-      describe("blockRendererFn", () => {
-        let type;
-        let data;
-        let block;
-        let spyOnChangeChecked;
-        beforeEach(() => {
-          type = null;
-          data = {};
-          spyOnChangeChecked = jest.spyOn(
-            CheckableListItemUtils,
-            "toggleChecked"
-          );
-          subject = () => {
-            block = new ContentBlock({
-              type,
-              data: Map(data),
-              key: "item1",
-              characterList: List(),
+          subject = () =>
+            plugin.blockStyleFn({
+              getType,
             });
-            return plugin.blockRendererFn(block, store);
-          };
-        });
-        afterEach(() => {
-          CheckableListItemUtils.toggleChecked.mockRestore();
-        });
-        it("returns renderer", async () => {
-          type = "checkable-list-item";
-          data = { checked: true };
-          const renderer = subject();
-          expect(typeof renderer).toBe("object");
-          expect(renderer.component).toBe(CheckableListItem);
-          expect(typeof renderer.props.onChangeChecked).toBe("function");
-          expect(renderer.props.checked).toBe(true);
-          const event = new Event("change", { bubbles: true });
-
-          event.simulated = true;
-          renderer.props.onChangeChecked(event);
-          await new Promise(resolve => setTimeout(() => resolve()));
-          expect(spyOnChangeChecked).toHaveBeenCalledWith(
-            currentEditorState,
-            block
-          );
         });
         it("returns null", () => {
           type = "ordered-list-item";
@@ -564,7 +514,11 @@ describe("draft-js-markdown-plugin", () => {
                     type: "unstyled",
                     depth: 0,
                     inlineStyleRanges: [
-                      { offset: 0, length: 5, style: "BOLD" },
+                      {
+                        offset: 0,
+                        length: 5,
+                        style: "BOLD",
+                      },
                     ],
                     entityRanges: [],
                     data: {},

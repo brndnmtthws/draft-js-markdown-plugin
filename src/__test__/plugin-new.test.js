@@ -24,9 +24,11 @@ describe("markdown", () => {
         })
       )
     );
-    expect(handleBeforeInput("*", before, { setEditorState })).toEqual(
-      "handled"
-    );
+    expect(
+      handleBeforeInput("*", before, {
+        setEditorState,
+      })
+    ).toEqual("handled");
     const raw = convertToRaw(
       setEditorState.mock.calls[0][0].getCurrentContent()
     );
@@ -67,9 +69,11 @@ describe("markdown", () => {
         hasFocus: true,
       })
     );
-    expect(handleBeforeInput("a", before, { setEditorState })).toEqual(
-      "not-handled"
-    );
+    expect(
+      handleBeforeInput("a", before, {
+        setEditorState,
+      })
+    ).toEqual("not-handled");
   });
 
   it("should not unstick inline styles if they were not added by md-to-inline-style change", () => {
@@ -129,9 +133,11 @@ describe("markdown", () => {
       )
     );
 
-    expect(handleBeforeInput("a", editorState, { setEditorState })).toEqual(
-      "handled"
-    );
+    expect(
+      handleBeforeInput("a", editorState, {
+        setEditorState,
+      })
+    ).toEqual("handled");
     const raw = convertToRaw(
       setEditorState.mock.calls[0][0].getCurrentContent()
     );
@@ -177,9 +183,11 @@ describe("markdown", () => {
       )
     );
 
-    expect(handleBeforeInput("a", editorState, { setEditorState })).toEqual(
-      "handled"
-    );
+    expect(
+      handleBeforeInput("a", editorState, {
+        setEditorState,
+      })
+    ).toEqual("handled");
     const raw = convertToRaw(
       setEditorState.mock.calls[0][0].getCurrentContent()
     );

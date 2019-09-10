@@ -1,8 +1,8 @@
 /* eslint-disable no-unused-vars */
 
 import Draft, { EditorState, SelectionState } from "draft-js";
-import handleInlineStyle from "../handleInlineStyle";
 import { defaultInlineWhitelist } from "../../constants";
+import handleInlineStyle from "../handleInlineStyle";
 
 describe("handleInlineStyle", () => {
   describe("no markup", () => {
@@ -72,9 +72,21 @@ describe("handleInlineStyle", () => {
             type: "unstyled",
             depth: 0,
             inlineStyleRanges: [
-              { length: 12, offset: 0, style: "BOLD" },
-              { length: 12, offset: 0, style: "STRIKETHROUGH" },
-              { length: 6, offset: 6, style: "ITALIC" },
+              {
+                length: 12,
+                offset: 0,
+                style: "BOLD",
+              },
+              {
+                length: 12,
+                offset: 0,
+                style: "STRIKETHROUGH",
+              },
+              {
+                length: 6,
+                offset: 6,
+                style: "ITALIC",
+              },
             ],
             entityRanges: [],
             data: {},
@@ -115,7 +127,13 @@ describe("handleInlineStyle", () => {
             text: "h~el*lo _inline~_* style",
             type: "unstyled",
             depth: 0,
-            inlineStyleRanges: [{ length: 18, offset: 0, style: "CODE" }],
+            inlineStyleRanges: [
+              {
+                length: 18,
+                offset: 0,
+                style: "CODE",
+              },
+            ],
             entityRanges: [],
             data: {},
           },
@@ -496,8 +514,16 @@ describe("handleInlineStyle", () => {
             type: "unstyled",
             depth: 0,
             inlineStyleRanges: [
-              { length: 14, offset: 0, style: "BOLD" },
-              { length: 7, offset: 7, style: "ITALIC" },
+              {
+                length: 14,
+                offset: 0,
+                style: "BOLD",
+              },
+              {
+                length: 7,
+                offset: 7,
+                style: "ITALIC",
+              },
             ],
             entityRanges: [],
             data: {},

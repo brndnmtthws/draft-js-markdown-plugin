@@ -1,5 +1,5 @@
-import sinon from "sinon";
 import Draft, { EditorState, SelectionState } from "draft-js";
+import sinon from "sinon";
 import leaveList from "../leaveList";
 
 describe("leaveList", () => {
@@ -9,11 +9,7 @@ describe("leaveList", () => {
   afterAll(() => {
     Draft.genKey.restore();
   });
-  [
-    "unordered-list-item",
-    "ordered-list-item",
-    "checkable-list-item",
-  ].forEach(type => {
+  ["unordered-list-item", "ordered-list-item"].forEach(type => {
     const beforeRawContentState = {
       entityMap: {},
       blocks: [

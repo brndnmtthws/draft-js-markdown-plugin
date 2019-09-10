@@ -1,4 +1,3 @@
-import { CHECKABLE_LIST_ITEM } from "draft-js-checkable-list-item";
 import { RichUtils } from "draft-js";
 import changeCurrentBlockType from "./changeCurrentBlockType";
 
@@ -69,19 +68,6 @@ const handleBlockType = (whiteList, editorState, character) => {
     matchArr = line.match(/^> (.*)$/);
     if (matchArr) {
       return changeCurrentBlockType(editorState, "blockquote", matchArr[1]);
-    }
-  } else if (
-    blockType === "unordered-list-item" &&
-    whiteList.includes(CHECKABLE_LIST_ITEM)
-  ) {
-    let matchArr = line.match(/^\[([x ])] (.*)$/i);
-    if (matchArr) {
-      return changeCurrentBlockType(
-        editorState,
-        CHECKABLE_LIST_ITEM,
-        matchArr[2],
-        { checked: matchArr[1] !== " " }
-      );
     }
   }
 
