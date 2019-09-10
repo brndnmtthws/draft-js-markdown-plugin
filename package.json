@@ -1,6 +1,6 @@
 {
   "name": "draft-js-markdown-plugin-es6",
-  "version": "3.1.0",
+  "version": "3.1.1",
   "description": "A DraftJS plugin for supporting Markdown syntax shortcuts, fork of draft-js-markdown-plugin, build for Draft.js 0.11.0 and ES6",
   "main": "lib/index.js",
   "scripts": {
