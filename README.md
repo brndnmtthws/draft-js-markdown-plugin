@@ -221,4 +221,4 @@ See [LICENSE] for the full license text.
 [DraftJS]: https://facebook.github.io/draft-js/
 [DraftJS Plugins]: https://github.com/draft-js-plugins/draft-js-plugins
 [LICENSE]: ./LICENSE
-[npm]: https://www.npmjs.com/package/draft-js-markdown-plugin
+[npm]: https://www.npmjs.com/package/draft-js-markdown-plugin-es6
