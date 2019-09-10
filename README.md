@@ -25,7 +25,7 @@ yarn add draft-js-markdown-plugin-es6
 ```js
 import React, { Component } from 'react';
 import Editor from 'draft-js-plugins-editor';
-import createMarkdownPlugin from 'draft-js-markdown-plugin';
+import createMarkdownPlugin from 'draft-js-markdown-plugin-es6';
 import { EditorState } from 'draft-js';
 
 export default class DemoEditor extends Component {
@@ -65,7 +65,7 @@ import createPrismPlugin from 'draft-js-prism-plugin';
 class Editor extends Component {
   state = {
     plugins: [
-      // Add the Prism plugin to the plugins array 
+      // Add the Prism plugin to the plugins array
       createPrismPlugin({
         prism: Prism
       }),
