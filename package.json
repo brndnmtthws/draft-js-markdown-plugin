@@ -14,7 +14,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/withspectrum/draft-js-markdown-plugin.git"
+    "url": "git+https://github.com/brndnmtthws/draft-js-markdown-plugin-es6.git"
   },
   "keywords": [
     "draftjs",
@@ -25,9 +25,9 @@
   "author": "Brenden Matthews <brenden@diddyinc.com>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/withspectrum/draft-js-markdown-plugin/issues"
+    "url": "https://github.com/brndnmtthws/draft-js-markdown-plugin-es6/issues"
   },
-  "homepage": "https://github.com/withspectrum/draft-js-markdown-plugin#readme",
+  "homepage": "https://github.com/brndnmtthws/draft-js-markdown-plugin-es6#readme",
   "lint-staged": {
     "*.{jsx,js,css}": [
       "prettier --write",
@@ -47,7 +47,7 @@
     "coveralls": "^3.0.6",
     "css-loader": "^3.2.0",
     "css-modules-require-hook": "^4.2.3",
-    "draft-js-plugins-editor": "draft-js-plugins/draft-js-plugins",
+    "draft-js-plugins-editor": "^3.0.0",
     "draft-js-prism": "ngs/draft-js-prism#6edb31c3805dd1de3fb897cc27fced6bac1bafbb",
     "enzyme": "^3.10.0",
     "enzyme-adapter-react-16": "^1.14.0",
