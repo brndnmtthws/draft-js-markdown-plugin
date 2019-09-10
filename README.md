@@ -8,7 +8,7 @@ An opinionated [DraftJS] plugin for supporting Markdown syntax shortcuts in Draf
 
 ![screen](screen.gif).
 
-[View Demo][Demo]
+[Demo](https://brndnmtthws.github.io/draft-js-markdown-plugin-es6/)
 
 ## Installation
 
