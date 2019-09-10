@@ -110,20 +110,19 @@ function CodeBlock(props) {
 
   return (
     <div>
-      <EditorBlock {...props} />{" "}
+      <EditorBlock {...props} />
       <CodeSwitchContainer
         onClickOutside={onClickOutside}
         onClick={onSelectClick}
       >
-        {" "}
         {!getReadOnly() &&
           renderLanguageSelect({
             selectedLabel,
             selectedValue,
             onChange,
             options,
-          })}{" "}
-      </CodeSwitchContainer>{" "}
+          })}
+      </CodeSwitchContainer>
     </div>
   );
 }
